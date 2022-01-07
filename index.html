@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+
+<body>
+    <script type="module">
+        import * as THREE from "https://threejs.org/build/three.module.js";
+        import { PointerLockControls } from "https://threejs.org/examples/jsm/controls/PointerLockControls.js";
+        import { GLTFLoader } from "https://threejs.org/examples/jsm/loaders/GLTFLoader.js";
+        import { STLLoader } from 'https://threejs.org/examples/jsm/loaders/STLLoader.js';
+        init();
+        function init() {
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color( 0x72645b );
+			scene.fog = new THREE.Fog( 0x72645b, 2, 15 );
+            const loader = new GLTFLoader();
+            loader.load('scene.gltf', function (gltf) {
+                scene.add(gltf.scene);
+                console.log("load success");
+            });
+            // const loader = new STLLoader();
+            // loader.load('./CrossyRoadChicken.stl', function (geometry) {
+
+            //     const material = new THREE.MeshPhongMaterial({ color: 0xff5533, specular: 0x111111, shininess: 200 });
+            //     const mesh = new THREE.Mesh(geometry, material);
+
+            //     mesh.position.set(0, - 0.25, 0.6);
+            //     mesh.rotation.set(0, - Math.PI / 2, 0);
+            //     mesh.scale.set(0.5, 0.5, 0.5);
+
+            //     mesh.castShadow = true;
+            //     mesh.receiveShadow = true;
+
+            //     scene.add(mesh);
+
+            // });
+        }
+
+    </script>
+</body>
+
+</html>
